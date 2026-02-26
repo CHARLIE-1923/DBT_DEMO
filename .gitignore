@@ -1,0 +1,23 @@
+# Environnement virtuel
+my-dbt-env/
+
+# Logs générés par dbt
+logs/
+
+# Dossiers de cache
+dbt_modules/
+dbt_packages/
+__pycache__/
+
+# Fichiers Python
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dossier local DBT (identifiants sensibles)
+.dbt/
+
+# Fichiers système Windows
+Thumbs.db
