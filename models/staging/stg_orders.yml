@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Staging table containing cleaned order data from raw_orders."
+
+    columns:
+      - name: id
+        description: "Primary key of the order."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer
+        description: "Identifier of the customer who placed the order."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: id
+
+      - name: ordered_at
+        description: "Timestamp when the order was placed."
+        tests:
+          - not_null
+
+      - name: store_id
+        description: "Identifier of the store where the order was processed."
+
+      - name: subtotal
+        description: "Subtotal amount before tax."
+
+      - name: tax_paid
+        description: "Tax amount applied to the order."
+
+      - name: order_total
+        description: "Total amount of the order including tax."
